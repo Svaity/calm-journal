@@ -1,11 +1,21 @@
-const CACHE = 'calm-v4';
+const CACHE = 'calm-v5';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
-  './icon-180.png',
-  './icon-192.png',
-  './icon-512.png'
+  './css/style.css',
+  './js/app.js',
+  './js/journal.js',
+  './js/theme.js',
+  './js/timer.js',
+  './js/audio.js',
+  './js/sounds/forest.js',
+  './js/sounds/ocean.js',
+  './js/sounds/flute.js',
+  './js/sounds/sitar.js',
+  './icons/icon-180.png',
+  './icons/icon-192.png',
+  './icons/icon-512.png'
 ];
 
 self.addEventListener('install', (e) => {

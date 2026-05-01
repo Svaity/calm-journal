@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="icon-512.png" width="140" alt="calm" />
+<img src="icons/icon-512.png" width="140" alt="calm" />
 
 # calm
 
@@ -65,16 +65,31 @@ On desktop, just open the link in any modern browser.
 
 ## ✦ Under the hood
 
-One HTML file. One service worker. Three icons. No build step. No dependencies.
+A small static site. No build step. No bundler. No dependencies. Plain ES modules served straight to the browser.
 
-| file | purpose |
-|---|---|
-| `index.html` | the whole app — markup, CSS, JS |
-| `manifest.json` | PWA manifest for home-screen install |
-| `sw.js` | service worker for offline support |
-| `icon-180.png` | Apple touch icon |
-| `icon-192.png` | PWA icon |
-| `icon-512.png` | high-res PWA icon |
+```
+calm-journal/
+├── index.html              markup only
+├── manifest.json           PWA manifest
+├── sw.js                   service worker (offline + cache)
+├── css/
+│   └── style.css           all styling
+├── icons/
+│   ├── icon-180.png        Apple touch icon
+│   ├── icon-192.png        PWA icon
+│   └── icon-512.png        high-res / maskable
+└── js/
+    ├── app.js              entry — wires the modules
+    ├── journal.js          entries, today's date, save/load, entries view
+    ├── theme.js            light/dark toggle
+    ├── timer.js            5-min breath timer
+    ├── audio.js            AudioContext, helpers, sound registry, iOS unlock
+    └── sounds/
+        ├── forest.js
+        ├── ocean.js
+        ├── flute.js
+        └── sitar.js
+```
 
 ### The sounds
 

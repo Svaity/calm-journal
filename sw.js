@@ -1,4 +1,4 @@
-const CACHE = 'calm-v2';
+const CACHE = 'calm-v3';
 const ASSETS = [
   './',
   './index.html',

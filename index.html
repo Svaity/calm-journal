@@ -126,11 +126,18 @@
     font-style: italic;
     opacity: 0.55;
   }
-  .toolbar {
+  .toolbar-stack {
     position: fixed;
     bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 5;
+  }
+  .toolbar {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -322,15 +329,16 @@
     .date-timer { font-size: 20px; padding: 3px 10px; }
     .date-row { padding-bottom: 18px; }
     textarea.body { font-size: 16px; min-height: 55vh; }
-    .toolbar {
+    .toolbar-stack {
       bottom: calc(16px + env(safe-area-inset-bottom));
-      max-width: calc(100vw - 24px);
-      overflow-x: auto;
-      justify-content: flex-start;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      gap: 6px;
+      width: calc(100vw - 24px);
     }
-    .toolbar::-webkit-scrollbar { display: none; }
+    .toolbar {
+      max-width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
     button { font-size: 13px; padding: 8px 11px; }
     .timer { font-size: 14px; min-width: 56px; padding: 0 8px; }
   }
@@ -355,18 +363,21 @@
     <textarea class="body" id="body" placeholder="begin..." spellcheck="false"></textarea>
   </div>
 
-  <div class="toolbar">
-    <button id="btn-forest" data-sound="forest" data-category="nature">forest</button>
-    <button id="btn-ocean" data-sound="ocean" data-category="nature">ocean</button>
-    <div class="divider"></div>
-    <button id="btn-flute" data-sound="flute" data-category="instrument">flute</button>
-    <button id="btn-sitar" data-sound="sitar" data-category="instrument">sitar</button>
-    <div class="divider"></div>
-    <span class="timer" id="timer" title="click to reset">5:00</span>
-    <button id="btn-timer">start</button>
-    <div class="divider"></div>
-    <button id="btn-entries">entries</button>
-    <button class="theme-toggle" id="btn-theme" title="toggle theme" aria-label="toggle theme"></button>
+  <div class="toolbar-stack">
+    <div class="toolbar">
+      <button id="btn-forest" data-sound="forest" data-category="nature">forest</button>
+      <button id="btn-ocean" data-sound="ocean" data-category="nature">ocean</button>
+      <div class="divider"></div>
+      <button id="btn-flute" data-sound="flute" data-category="instrument">flute</button>
+      <button id="btn-sitar" data-sound="sitar" data-category="instrument">sitar</button>
+    </div>
+    <div class="toolbar">
+      <span class="timer" id="timer" title="click to reset">5:00</span>
+      <button id="btn-timer">start</button>
+      <div class="divider"></div>
+      <button id="btn-entries">entries</button>
+      <button class="theme-toggle" id="btn-theme" title="toggle theme" aria-label="toggle theme"></button>
+    </div>
   </div>
 
   <div class="overlay" id="overlay">
